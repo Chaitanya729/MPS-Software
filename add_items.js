@@ -8,6 +8,7 @@ const Add_items = () => {
     const [quantity, setQuantity] = useState(0);
     const [image, setImage] = useState(null)
     const [price, setPrice] = useState(0)
+    const [address, setAddress] = useState('')
     const [errorMessage, setErrorMessage] = useState('');
 
     const history = useHistory()
@@ -30,6 +31,10 @@ const Add_items = () => {
 
     const handlePriceChange = (e) => {
         setPrice(e.target.value)
+    }
+
+    const handleAddressChange = (e) => {
+        setAddress(e.target.value)
     }
     
     const handleImageChange = async(e) => {
@@ -54,7 +59,9 @@ const Add_items = () => {
         formData.append('quantity', quantity)
         formData.append('image', image)
         formData.append('price', price)
-        formData.append('status',0)
+        formData.append('status',1)
+        formData.append('threshold', 0)
+        formData.append('address', address)
 
         try {
             const response = await fetch('/api/add_item', {
@@ -77,7 +84,7 @@ const Add_items = () => {
             <p>Add items</p>
             <form onSubmit={handleSubmit}>
                 <div className="enter">
-                    <p>Name</p>
+                    <p>Part Name</p>
                     <input type = "text" onChange={handleNameChange} />
                 </div>
 
@@ -100,6 +107,11 @@ const Add_items = () => {
                 <p>Price ($) </p>
                 <input type="number" onChange={handlePriceChange} />
                </div>
+
+               <div className="enter">
+                    <p>Seller Address</p>
+                    <input type = "text" onChange={handleAddressChange} />
+                </div>
 
                <div className="enter">
                     <p>Image</p>

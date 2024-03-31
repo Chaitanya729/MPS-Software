@@ -23,8 +23,7 @@ const Inventory = () => {
     useEffect(() => {
         const fetchParts = async () => {
             try {
-                const url = searchTerm ? `/api/search?query=${searchTerm}` : '/api/parts'
-                const response = await fetch(url);
+                const response = await fetch('/api/parts');
                 if (!response.ok) {
                     throw new Error('Failed to fetch parts');
                 }

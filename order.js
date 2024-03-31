@@ -9,6 +9,10 @@ const Order = () => {
     const history = useHistory()
     const [searchOrder, setSearchOrder] = useState('')
 
+    const handleOrderGeneration = async () => {
+        const response = await axios.get('http://localhost:5000/order/sendorder')
+    }
+
     useEffect(() => {
         const fetchParts = async () => {
             try {
@@ -45,6 +49,7 @@ const Order = () => {
                     </div>
                 )) : <div className="loading-message">Loading...</div>}
             </div>
+            <button onClick={handleOrderGeneration}>Order Items</button>
         </div>
      );
 }

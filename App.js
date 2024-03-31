@@ -14,7 +14,7 @@ import Item_details from "./item_details";
 import Add_items from "./add_items";
 import Select_item from "./select_item";
 // import MyComponent from "./graph1";
-import BarChart from "./graph2";
+import Revenue from "./revenue_sheet";
 function App() {
   return (
    <Router>
@@ -24,7 +24,7 @@ function App() {
     <Route exact path = "/"component  ={Home} />
     <Route  path ="/home" component={Home}/>
     <Route exact path ="/inventory" component={Inventory}/>
-    <Route path ="/statistics" component={BarChart} />
+    <Route path ="/statistics" component={Revenue} />
     <Route path ="/order" component={Order} />
     <Route exact path ="/makebill" component={Makebill}/>
     <Route exact path = "/inventory/:id" component={Item_details} />

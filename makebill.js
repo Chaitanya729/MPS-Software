@@ -35,7 +35,6 @@ const Makebill = () => {
     if (loading) {
         return <div>
             <center>
-
             <h2> Loading... </h2>
             </center>
             </div>; 
